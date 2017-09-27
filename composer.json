@@ -10,6 +10,11 @@
     "require": {
 		"php": ">=5.5"
 	},
+    "repositories": [
+        {      "url":"https://github.com/shubhamnagar/tracknoroute.git",
+            "type": "git"
+        }
+    ],
     "autoload": {
         "files": [
             "registration.php"
