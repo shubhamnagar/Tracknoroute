@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+	<preference for="Magento\Cms\Controller\Noroute\Index" type="Raveinfosys\Tracknoroute\Controller\Tracknoroute\Index" />
+
+	<preference for="Raveinfosys\Tracknoroute\Api\Data\TracknorouteInterface" type="Raveinfosys\Tracknoroute\Model\Tracknoroute" />
+    <virtualType name="TracknorouteGirdFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="TracknorouteGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Raveinfosys\Tracknoroute\Model\ResourceModel\Tracknoroute\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">TracknorouteGirdFilterPool</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Raveinfosys\Tracknoroute\Model\ResourceModel\Tracknoroute\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">tracknoroute</argument>
+            <argument name="resourceModel" xsi:type="string">Raveinfosys\Tracknoroute\Model\ResourceModel\Tracknoroute</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="tracknoroute_listing_data_source" xsi:type="string">Raveinfosys\Tracknoroute\Model\ResourceModel\Tracknoroute\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
