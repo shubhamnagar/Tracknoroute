@@ -15,11 +15,9 @@ class InstallData implements InstallDataInterface
    
     protected $pageFactory;
     protected $scopeConfig;
-    public function __construct(
-        PageFactory $pageFactory,
-        ScopeConfigInterface $scopeConfig
-    ) {
-    
+    public function __construct(PageFactory $pageFactory,
+                                ScopeConfigInterface  $scopeConfig)
+    {
         $this->pageFactory = $pageFactory;
         $this->scopeConfig = $scopeConfig;
     }
@@ -35,6 +33,7 @@ class InstallData implements InstallDataInterface
         $xml = $noRoutePage->getLayoutUpdateXml();
         $newXML = $xml.$xmlToSave;
         $noRoutePage->setLayoutUpdateXml($newXML)->save();
+
     }
 
     public function UpdatePage()

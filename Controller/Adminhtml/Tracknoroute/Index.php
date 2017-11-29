@@ -18,8 +18,8 @@ class Index extends \Magento\Backend\App\Action
     {
         $resultPage = $this->resultPageFactory->create();
         $resultPage->setActiveMenu('Raveinfosys_Tracknoroute::content');
-        $resultPage->addBreadcrumb(__('Manage 404 Error Pages'), __('Manage 404 Error Pages'));
-        $resultPage->getConfig()->getTitle()->prepend(__('Manage 404 Error Pages'));
+        $resultPage->addBreadcrumb(__('Track 404 Error Pages'), __('Track 404 Error Pages'));
+        $resultPage->getConfig()->getTitle()->prepend(__('Track 404 Error Pages'));
         return $resultPage;
     }
     public function _isAllowed()
